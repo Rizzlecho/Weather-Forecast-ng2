@@ -1,0 +1,20 @@
+<section>
+  <form #myForm="ngForm" (ngSubmit)="search(locationGroup)" [formGroup]="locationGroup">
+
+    <div class="input">
+      <label for="search">Enter name of a city and press search:</label>
+      <input formControlName="inputLocation" type="text" id="search">
+      <div class="center-button">
+
+      </div>
+      <button [disabled]="isDisabled(locationGroup)" type="submit" class="btn">Search</button>
+    </div>
+
+
+    <h2 *ngIf="invalid">Invalid location</h2>
+
+
+  </form>
+
+
+</section>

@@ -1,0 +1,151 @@
+
+article {
+  display: flex;
+  justify-content: space-between;
+  &.city-main-details {
+    margin-top: 100px;
+    padding: 20px;
+  }
+}
+
+section.details {
+  max-width: 500px;
+  margin: 0 auto 70px auto;
+  .buttons {
+    margin: 55px 50px 15px 50px;
+    display: flex;
+    justify-content: space-evenly;
+    & > button {
+      width: 50%;
+      padding: 8px;
+      background: #fdfdfd;
+      color: black;
+      border: 1px solid #b5b5b5;
+      outline: none;
+      cursor: pointer;
+
+      &:disabled {
+        border: 1px solid #dddddd;
+        color: grey;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  .details-48h {
+    margin-top: 30px;
+    border-bottom: 1px solid black;
+  }
+}
+
+.right-info {
+  text-align: right;
+  position: relative;
+  img {
+    position: relative;
+    left: 1px;
+    top: 10px;
+    width: 50px;
+  }
+}
+
+.first-row-weather {
+  margin: 0;
+  padding: 0;
+  font-size: 45px;
+  font-weight: 500;
+}
+
+.second-row-weather {
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 27px;
+  font-weight: 300;
+}
+
+.first-row-48h {
+  margin: 0;
+  padding: 0;
+  font-size: 23px;
+  font-weight: 400;
+  text-align: right;
+  position: relative;
+  img {
+    position: relative;
+    right: 2px;
+    top: 6px;
+    width: 24px;
+  }
+
+}
+
+.second-row-48h {
+  margin: 5px 0 3px 0;
+  padding: 0;
+}
+
+.mobile-btn {
+  display: none;
+}
+
+@media screen and (max-width: 766px) {
+  section.details {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+  }
+  article {
+    &.city-main-details {
+      margin-top: 50px;
+      position: relative;
+      display: block;
+      .second-row-weather {
+        text-align: left;
+        font-size: 23px;
+      }
+      .temp-icon {
+        position: absolute;
+        bottom: 78px;
+        right: 3px;
+      }
+      .condition {
+        font-size: 21px;
+      }
+    }
+    &.today-details {
+      padding: 20px;
+    }
+
+  }
+
+  button:nth-of-type(1),button:nth-of-type(2) {
+    display: none;
+  }
+
+  .mobile-btn {
+    display: block;
+  }
+
+  .mobile-details {
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .mobile-predetails{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    & > * {
+      margin: 0;
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: 400;
+    }
+  }
+}
+

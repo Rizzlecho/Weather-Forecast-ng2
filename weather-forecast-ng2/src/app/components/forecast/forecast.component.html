@@ -1,0 +1,75 @@
+<section *ngIf="cityMain">
+  <article class="city-main-details">
+    <div class="left-info">
+      <h2 class="first-row-weather">{{name}}</h2>
+      <h2 class="second-row-weather">{{localtimeAndDate}}</h2>
+    </div>
+    <div class="right-info">
+      <h2 class="first-row-weather temp-icon"><img src={{icon}}/>{{temp}}°</h2>
+      <h2 class="second-row-weather condition">{{condition}}</h2>
+    </div>
+  </article>
+</section>
+
+<section class="details">
+  <div class="buttons">
+    <button [disabled]="isDisabledToday()" (click)="renderToday()">Today</button>
+    <button [disabled]="isDisabled48h()" (click)="render48h()">48 Hours Forecast</button>
+    <button *ngIf="cityMain" (click)="render48Mobile()" class="mobile-btn">48 Hours Forecast</button>
+  </div>
+
+  <article *ngIf="showToday" class="today-details">
+    <div class="left-details">
+      <h3>Feels Like</h3>
+      <h3>Wind</h3>
+      <h3>Humidity</h3>
+    </div>
+
+    <div class="right-details">
+      <h3>{{feelsLike}}°</h3>
+      <h3>{{wind}} km/h</h3>
+      <h3>{{humidity}}%</h3>
+    </div>
+
+  </article>
+
+  <div *ngIf="show48h">
+    <div *ngFor="let obj of nextDaysArr" class="details-48h">
+      <article>
+        <div class="left-details">
+          <p style="text-align: left" class="first-row-48h">{{localtime}}</p>
+          <p class="second-row-48h">{{obj.dateIn48h}}</p>
+        </div>
+
+        <div class="right-details">
+          <p class="first-row-48h"><img src={{obj.iconIn48h}}/>{{obj.tempIn48h}}°</p>
+          <p class="second-row-48h">{{obj.conditionIn48h}}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div *ngIf="!cityMain" class="mobile-details">
+    <div class="mobile-predetails">
+      <h2>{{name}}</h2>
+      <p>next 6 days</p>
+    </div>
+
+
+    <div *ngFor="let obj of nextDaysArr" class="details-48h">
+      <article>
+        <div class="left-details">
+          <p style="text-align: left" class="first-row-48h">{{localtime}}</p>
+          <p class="second-row-48h">{{obj.dateIn48h}}</p>
+        </div>
+
+        <div class="right-details">
+          <p class="first-row-48h"><img src={{obj.iconIn48h}}/>{{obj.tempIn48h}}°</p>
+          <p class="second-row-48h">{{obj.conditionIn48h}}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</section>
+
